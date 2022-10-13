@@ -5,11 +5,10 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Post;
 
-
 class Posts extends Component
 {
-    public $posts, $title, $body, $post_id;
-    public $updateMode = false;
+    public $posts, $title, $description, $post_id;
+    public $isOpen = 0;
 
     /**
      * The attributes that are mass assignable.
@@ -27,9 +26,41 @@ class Posts extends Component
      *
      * @var array
      */
+    public function create()
+    {
+        $this->resetInputFields();
+        $this->openModal();
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    public function openModal()
+    {
+        $this->isOpen = true;
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    public function closeModal()
+    {
+        $this->isOpen = false;
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     private function resetInputFields(){
         $this->title = '';
-        $this->body = '';
+        $this->description = '';
+        $this->post_id = '';
     }
 
     /**
@@ -39,18 +70,22 @@ class Posts extends Component
      */
     public function store()
     {
-        $validatedDate = $this->validate([
+        $this->validate([
             'title' => 'required',
-            'body' => 'required',
+            'description' => 'required',
         ]);
 
-        Post::create($validatedDate);
+        Post::updateOrCreate(['id' => $this->post_id], [
+            'title' => $this->title,
+            'description' => $this->description
+        ]);
 
-        session()->flash('message', 'Post Created Successfully.');
+        session()->flash('message',
+            $this->post_id ? 'Post Updated Successfully.' : 'Post Created Successfully.');
 
+        $this->closeModal();
         $this->resetInputFields();
     }
-
     /**
      * The attributes that are mass assignable.
      *
@@ -61,43 +96,9 @@ class Posts extends Component
         $post = Post::findOrFail($id);
         $this->post_id = $id;
         $this->title = $post->title;
-        $this->body = $post->body;
+        $this->description = $post->description;
 
-        $this->updateMode = true;
-    }
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    public function cancel(){
-        $this->updateMode = false;
-        $this->resetInputFields();
-    }
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    public function update()
-    {
-        $validatedDate = $this->validate([
-            'title' => 'required',
-            'body' => 'required',
-        ]);
-
-        $post = Post::find($this->post_id);
-        $post->update([
-            'title' => $this->title,
-            'body' => $this->body,
-        ]);
-
-        $this->updateMode = false;
-
-        session()->flash('message', 'Post Updated Successfully.');
-        $this->resetInputFields();
+        $this->openModal();
     }
 
     /**
