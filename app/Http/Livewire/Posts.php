@@ -71,8 +71,7 @@ class Posts extends Component
      *
      * @var array
      */
-    public function cancel()
-    {
+    public function cancel(){
         $this->updateMode = false;
         $this->resetInputFields();
     }
