@@ -29,6 +29,5 @@
 
     {{ $users->links() }}
 </div>
-
 </body>
 </html>

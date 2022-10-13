@@ -47,8 +47,7 @@ class Posts extends Component
      *
      * @var array
      */
-    public function closeModal()
-    {
+    public function closeModal(){
         $this->isOpen = false;
     }
 
@@ -79,7 +78,6 @@ class Posts extends Component
             'title' => $this->title,
             'description' => $this->description
         ]);
-
         session()->flash('message',
             $this->post_id ? 'Post Updated Successfully.' : 'Post Created Successfully.');
 
