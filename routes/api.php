@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UssdController;
 use Illuminate\Http\Request;
@@ -22,4 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('ussd-session', [UssdController::class,'session']);
 Route::resource('tests',TestController::class);
+
+Route::resource('photos',PhotoController::class);
 
