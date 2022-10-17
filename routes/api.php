@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UssdController;
 use Illuminate\Http\Request;
@@ -26,3 +27,4 @@ Route::resource('tests',TestController::class);
 
 Route::resource('photos',PhotoController::class);
 
+Route::resource('products',ProductController::class);
