@@ -37,7 +37,8 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-
+return response()->json([
+],200);
 
     }
 
@@ -73,7 +74,7 @@ class PhotoController extends Controller
     public function update(Request $request, Photo $photo)
     {
      return response()->json([
-        
+
      ]);
     }
 

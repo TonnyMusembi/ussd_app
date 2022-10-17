@@ -31,3 +31,10 @@
 </div>
 </body>
 </html>
+<script>
+
+    const days = ['mon','tue','wed','thu']
+    console.log(days[0])
+
+
+</script>
