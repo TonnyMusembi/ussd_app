@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\UssdController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('ussd-session', [UssdController::class,'session']);
+Route::resource('tests',TestController::class);
+
