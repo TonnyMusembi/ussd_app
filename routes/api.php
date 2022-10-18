@@ -3,6 +3,7 @@
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UssdController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,3 +29,7 @@ Route::resource('tests',TestController::class);
 Route::resource('photos',PhotoController::class);
 
 Route::resource('products',ProductController::class);
+
+Route::resource('transactions',TransactionController::class);
+
+// Route::resource('');
