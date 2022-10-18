@@ -35,6 +35,9 @@
 
     const days = ['mon','tue','wed','thu']
     console.log(days[0])
-
-
+    // if (error){
+    //     res.json({
+    //         message:'error'
+    //     })
+    // }
 </script>
