@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Photo;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 
-class PhotoController extends Controller
+class NotificationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,7 @@ class PhotoController extends Controller
      */
     public function index()
     {
-
-    $photos = Photo::all();
-    return response()->json([
-        "message" => 'successfuly',
-        "status" => 'success'
-    ],200);
-
+        //
     }
 
     /**
@@ -41,20 +35,16 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-     return response()->json([
-        "message" => 'successful',
-        "status" => 'success'
-     ],200);
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Photo  $photo
+     * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function show(Photo $photo)
+    public function show(Notification $notification)
     {
         //
     }
@@ -62,10 +52,10 @@ class PhotoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Photo  $photo
+     * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function edit(Photo $photo)
+    public function edit(Notification $notification)
     {
         //
     }
@@ -74,26 +64,22 @@ class PhotoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Photo  $photo
+     * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Photo $photo)
+    public function update(Request $request, Notification $notification)
     {
-     return response()->json([
-
-     ]);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Photo  $photo
+     * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Notification $notification)
     {
-
-    $photo = Photo::find($id);
-    $photo->delete();
+        //
     }
 }
