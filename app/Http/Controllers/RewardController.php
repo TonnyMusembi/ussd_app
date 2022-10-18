@@ -80,6 +80,11 @@ class RewardController extends Controller
      */
     public function destroy(Reward $reward)
     {
+        $reward  -> delete();
+        return response()->json([
+        'message'=> 'deleted successfuly'
+
+        ],200);
         //
     }
 }
