@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Prediction extends Model
 {
+    protected $fillable = [
+        'prediction_id',
+        'name',
+        'league'
+
+    ];
     use HasFactory;
 }
