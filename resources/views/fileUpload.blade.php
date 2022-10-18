@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container mt-5" style="max-width: 900px">
+    <div class="container mt-5" style="max-width: 500px">
 
         <div class="alert alert-primary mb-4 text-center">
            <h2 class="display-6">File Upload</h2>
@@ -22,9 +22,15 @@
                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
                 </div>
             </div>
-            <div class="d-grid mt-4">
+             <div class="d-grid mt-4">
                 <input type="submit" value="Submit" class=" btn btn-success">
             </div>
+        </form>
+    </div>
+    <div class="container mt-5">
+        <form action="" enctype="multipart/form-data" method="" action="{{ route('file.upload')}}">
+            @csrf
+            <a href="{{('user-pagination')}}"> Next</a>
         </form>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
