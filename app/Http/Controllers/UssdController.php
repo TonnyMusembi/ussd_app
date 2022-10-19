@@ -9,7 +9,7 @@ class UssdController extends Controller
     //
     public static function session(Request $request)
     {
-        //$request->all();
+    //    $request->all();
         $text=$request->input('text');
         $session_id = $request->input('sessionId');
         $phone_number = $request->input('phoneNumber');
