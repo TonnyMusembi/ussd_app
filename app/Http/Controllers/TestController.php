@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Test;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
@@ -27,9 +29,8 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-     return view('');
+    public function create(){
+
     }
 
     /**
@@ -40,8 +41,9 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Transaction::create([
 
+        ]);
     }
 
     /**
