@@ -15,7 +15,10 @@ class TestController extends Controller
     public function index()
     {
      $tests =Test::all();
-     return $tests;
+     return response()->json([
+        'message'=> 'selected successful',
+        'status' => 'sucess'
+     ],200);
 
     }
 
@@ -26,7 +29,7 @@ class TestController extends Controller
      */
     public function create()
     {
-        //
+     return view('');
     }
 
     /**
@@ -38,7 +41,7 @@ class TestController extends Controller
     public function store(Request $request)
     {
         //
-        
+
     }
 
     /**

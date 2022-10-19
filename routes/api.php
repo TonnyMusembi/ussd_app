@@ -32,4 +32,4 @@ Route::resource('products',ProductController::class);
 
 Route::resource('transactions',TransactionController::class);
 
-// Route::resource('');
+
