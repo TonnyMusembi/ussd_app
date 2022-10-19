@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Test;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
@@ -15,7 +17,10 @@ class TestController extends Controller
     public function index()
     {
      $tests =Test::all();
-     return $tests;
+     return response()->json([
+        'message'=> 'selected successful',
+        'status' => 'sucess'
+     ],200);
 
     }
 
@@ -24,9 +29,8 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+
     }
 
     /**
@@ -37,8 +41,9 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        
+        Transaction::create([
+
+        ]);
     }
 
     /**
