@@ -5,6 +5,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UssdController;
@@ -44,3 +45,5 @@ Route::resource('transactions',TransactionController::class);
 
 Route::resource('books',BookController::class);
 Route::resource('leagues',LeagueController::class);
+
+Route::resource('students',StudentController::class);
