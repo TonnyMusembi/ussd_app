@@ -20,7 +20,6 @@ class BookController extends Controller
             "data" => $books
       ]);
 
-
     }
 
     /**
@@ -61,8 +60,10 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book)
-    {
+    public function edit(Book $book){
+        return response()->json(
+            
+        );
         //
     }
 
