@@ -17,8 +17,7 @@ class ProductController extends Controller
         $proucts = Product::latest()->paginate(10);
           return response()->json([
             "status" => 200,
-            "data" => $proucts
-      ]);
+            "data" => $proucts ]);
 
     }
 
