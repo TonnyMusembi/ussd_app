@@ -11,8 +11,7 @@ class CreateLeaguesTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
+    public function up(){
         Schema::create('leagues', function (Blueprint $table) {
             // $table->id();
             $table->integerIncrements('league_id');

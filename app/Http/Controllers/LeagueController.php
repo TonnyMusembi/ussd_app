@@ -28,7 +28,7 @@ class LeagueController extends Controller
      */
     public function create()
     {
-        //
+        return view('league.create');
     }
 
     /**
