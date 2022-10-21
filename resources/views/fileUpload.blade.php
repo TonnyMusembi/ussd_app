@@ -30,7 +30,9 @@
     <div class="container mt-5">
         <form action="" enctype="multipart/form-data" method="" action="{{ route('file.upload')}}">
             @csrf
-            <a href="{{('user-pagination')}}"> Next</a>
+            <div>
+           <button class="btn btn-success"><a href="{{('user-pagination')}}"></a> Users</button>
+            </div>
         </form>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

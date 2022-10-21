@@ -14,9 +14,12 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        //  return $this->user
-        //     ->products()
-        //     ->get();
+        $proucts = Product::latest()->paginate(10);
+          return response()->json([
+            "status" => 200,
+            "data" => $proucts
+      ]);
+
     }
 
     /**
@@ -26,8 +29,8 @@ class ProductController extends Controller
      */
     public function create(){
         return response()->json([
-
-            
+            "message" => "created successfully",
+            "status"  =>  "success"
         ]);
 
 
@@ -50,9 +53,14 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Product $product ,$id)
     {
-        //
+    //   
+        $product = Product::find($id);
+
+        if (is_null($product)) {
+            return $this->sendError('Product not found.');
+        }
     }
 
     /**
@@ -85,7 +93,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
-    {
+     {
         $product -> delete();
 
         return response()->json([
