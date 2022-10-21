@@ -30,10 +30,7 @@ class ProductController extends Controller
     public function create(){
         return response()->json([
             "message" => "created successfully",
-            "status"  =>  "success"
-        ]);
-
-
+            "status"  =>  "success"]);
     }
 
     /**
@@ -44,7 +41,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $validator = Validator::make($request->all,[
+        'mame' =>'required',
+        'email' => 'required',
+        'password' => 'required|string|confirmed|min:6'
+    ]);
     }
 
     /**
@@ -55,7 +56,7 @@ class ProductController extends Controller
      */
     public function show(Product $product ,$id)
     {
-    //   
+    //
         $product = Product::find($id);
 
         if (is_null($product)) {
