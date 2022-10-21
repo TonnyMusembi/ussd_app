@@ -29,10 +29,14 @@
 
     {{ $users->links() }}
 </div>
+<div class="container mt-5" style="max-width: 500px">
+ <form action="{{ route('file.upload')}}" method="" enctype="multipart/form-data">
+    <button class="btn btn-success"> Next</button>
+ </form>
+</div>
 </body>
 </html>
 <script>
-
     const days = ['mon','tue','wed','thu']
     console.log(days[0])
     // if (error){

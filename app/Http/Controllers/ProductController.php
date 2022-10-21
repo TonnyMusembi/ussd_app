@@ -14,9 +14,12 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        //  return $this->user
-        //     ->products()
-        //     ->get();
+         $products = Product::select("*")
+                      ->get();
+
+        $data = (array) $products;
+
+        dd($data);
     }
 
     /**
@@ -26,8 +29,8 @@ class ProductController extends Controller
      */
     public function create(){
         return response()->json([
-
-            
+            "message" => "created successfully",
+            "status"  =>  "success"
         ]);
 
 
@@ -85,7 +88,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
-    {
+     {
         $product -> delete();
 
         return response()->json([
