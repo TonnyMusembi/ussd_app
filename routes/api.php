@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Authcontroller;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TestController;
@@ -40,4 +41,4 @@ Route::resource('products',ProductController::class);
 
 Route::resource('transactions',TransactionController::class);
 
-
+Route::resource('books',BookController::class);
