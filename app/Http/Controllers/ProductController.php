@@ -14,12 +14,12 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-         $products = Product::select("*")
-                      ->get();
+        $proucts = Product::latest()->paginate(10);
+          return response()->json([
+            "status" => 200,
+            "data" => $proucts
+      ]);
 
-        $data = (array) $products;
-
-        dd($data);
     }
 
     /**
@@ -53,9 +53,14 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Product $product ,$id)
     {
-        //
+    //   
+        $product = Product::find($id);
+
+        if (is_null($product)) {
+            return $this->sendError('Product not found.');
+        }
     }
 
     /**
