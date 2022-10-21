@@ -2,24 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
-use Illuminate\Http\Client\ResponseSequence;
+use App\Models\League;
 use Illuminate\Http\Request;
 
-class BookController extends Controller
+class LeagueController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $books = Book::latest()->paginate(10);
-          return response()->json([
-            "status" => 200,
-            "data" => $books
-      ]);
-
+    public function index()
+    {
+        $leagues = League::latest()->paginate(10);
+        return response()->json([
+              "status" => 200,
+            "data" => $leagues
+        ]);
     }
 
     /**
@@ -29,7 +28,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return response()->json();
+        return view('league.create');
     }
 
     /**
@@ -40,16 +39,26 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'league_id' => 'required',
+            'name' => 'required',
+            'country'=> 'required'
+        ]);
+        $leagues = League::create($request->all());
+        return [
+            "status" => 200,
+            "data" => $leagues
+        ];
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\League  $league
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show(League $league)
     {
         //
     }
@@ -57,13 +66,11 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\League  $league
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book){
-        return response()->json(
-            
-        );
+    public function edit(League $league)
+    {
         //
     }
 
@@ -71,10 +78,10 @@ class BookController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\League  $league
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, League $league)
     {
         //
     }
@@ -82,10 +89,10 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\League  $league
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy(League $league)
     {
         //
     }
