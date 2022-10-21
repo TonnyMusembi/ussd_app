@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 
 ## About Laravel
 Laravel API's
@@ -28,3 +29,6 @@ Thank you for considering contributing to the Laravel framework! The contributio
 ## License
 
 # ussd_app
+=======
+Laravel backend API's with some frontend 
+>>>>>>> origin/main
