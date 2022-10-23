@@ -14,5 +14,9 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
+    },
+    "dependencies": {
+        "vue-infinite-loading": "^2.4.5",
+        "vue-resource": "^1.5.3"
     }
 }
