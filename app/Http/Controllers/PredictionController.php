@@ -15,6 +15,11 @@ class PredictionController extends Controller
     public function index()
     {
         //
+        $predictions = Prediction::all();
+        return response()->json([
+              "status" => 200,
+            "data" => $predictions
+      ]);
     }
 
     /**
@@ -22,9 +27,9 @@ class PredictionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
+    return view('prediction.create');
     }
 
     /**
