@@ -4,11 +4,13 @@ use App\Http\Controllers\Authcontroller;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\PredictionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UssdController;
+use App\Http\Controllers\VueItemController;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -47,3 +49,6 @@ Route::resource('books',BookController::class);
 Route::resource('leagues',LeagueController::class);
 
 Route::resource('students',StudentController::class);
+
+Route::resource('predictions',PredictionController::class);
+Route::resource('items',VueItemController::class );
