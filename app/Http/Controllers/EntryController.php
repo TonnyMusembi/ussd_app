@@ -96,8 +96,13 @@ class EntryController extends Controller
      * @param  \App\Models\Entry  $entry
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Entry $entry)
+    public function destroy(Entry $id)
     {
-        //
+     return  response()->json([
+
+        'message' => 'deleted successfuly',
+        'data'=> $id
+
+     ]);
     }
 }
