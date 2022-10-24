@@ -40,17 +40,15 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-    
+
          $request->validate([
-            'prediction_id' => 'required',
-            'name' => 'required',
-            'league'=> 'required'
+            'book_id' => 'required',
+            'status' => 'required',
+            'name'=> 'required'
         ]);
         $book = Book::create($request->all());
-        return [
-            "status" => 200,
-            "data" => $book
-        ];
+    return response()->json(['message' => 'Created successfully'], 200);
+
     }
 
     /**
