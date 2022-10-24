@@ -41,6 +41,17 @@ class PredictionController extends Controller
     public function store(Request $request)
     {
         //
+
+         $request->validate([
+            'prediction_id' => 'required',
+            'name' => 'required',
+            'league'=> 'required'
+        ]);
+        $prediction = Prediction::create($request->all());
+        return [
+            "status" => 200,
+            "data" => $prediction
+        ];
     }
 
     /**
