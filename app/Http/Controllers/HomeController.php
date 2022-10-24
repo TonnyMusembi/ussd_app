@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prediction;
+use App\Models\Home;
 use Illuminate\Http\Request;
 
-class PredictionController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,21 +15,22 @@ class PredictionController extends Controller
     public function index()
     {
         //
-        $predictions = Prediction::latest()->paginate(10);
-        return response()->json([
-              "status" => 200,
-            "data" => $predictions
-      ]);
     }
+    public function notification()
+    {
+        session()->put('success','Item created successfully.');
 
+
+        return view('notification-check');
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         //
-    return view('prediction.create');
     }
 
     /**
@@ -40,28 +41,16 @@ class PredictionController extends Controller
      */
     public function store(Request $request)
     {
-     $request->validate([
-            'prediction_id' => 'required',
-            'name' => 'required',
-            'league'=> 'required'
-        ]);
-        $prediction = Prediction::create($request->all());
-        return [
-            "status" => 200,
-            "data" => $prediction
-        ];
-
-
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Prediction  $prediction
+     * @param  \App\Models\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function show(Prediction $prediction)
+    public function show(Home $home)
     {
         //
     }
@@ -69,10 +58,10 @@ class PredictionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Prediction  $prediction
+     * @param  \App\Models\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function edit(Prediction $prediction)
+    public function edit(Home $home)
     {
         //
     }
@@ -81,10 +70,10 @@ class PredictionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Prediction  $prediction
+     * @param  \App\Models\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Prediction $prediction)
+    public function update(Request $request, Home $home)
     {
         //
     }
@@ -92,10 +81,10 @@ class PredictionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Prediction  $prediction
+     * @param  \App\Models\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Prediction $prediction)
+    public function destroy(Home $home)
     {
         //
     }
