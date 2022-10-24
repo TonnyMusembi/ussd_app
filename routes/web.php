@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VueItemController;
+use App\Http\Controllers\GoogleChartController;
+
 use App\Http\Livewire\Posts;
 
 
@@ -37,3 +39,5 @@ Route::get('manage-vue', [VueItemController::class]);
 // Route::resource('vueitems',[VueItemController::class]);
 
 Route::get('notification', [HomeController::class,'notification']);
+
+Route::get('chart', [GoogleChartController::class, 'index']);

@@ -16,10 +16,10 @@ class StudentController extends Controller
     {
         //
         $student = Student::latest()->paginate(10);
-        //  return response()->json([
-        //       "status" => 200,
-        //     "data" => $student
-        // ]);
+         return response()->json([
+              "status" => 200,
+            "data" => $student
+        ]);
         return view('index', compact('student'));
     }
 
@@ -42,6 +42,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
+    
     }
 
     /**
