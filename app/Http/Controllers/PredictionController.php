@@ -15,6 +15,11 @@ class PredictionController extends Controller
     public function index()
     {
         //
+        $predictions = Prediction::all();
+        return response()->json([
+              "status" => 200,
+            "data" => $predictions
+      ]);
     }
 
     /**
