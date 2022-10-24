@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VueItemController;
 use App\Http\Controllers\GoogleChartController;
 
+use App\Http\Controllers\BlogController;
+
 use App\Http\Livewire\Posts;
 
 
@@ -41,3 +43,7 @@ Route::get('manage-vue', [VueItemController::class]);
 Route::get('notification', [HomeController::class,'notification']);
 
 Route::get('chart', [GoogleChartController::class, 'index']);
+Route::post('validate-exists', [ BlogController::class,'store'])->name('validate.exists');
+Route::get('/index', [ BlogController::class,'index']);
+
+
