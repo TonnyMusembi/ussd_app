@@ -47,11 +47,10 @@ class EntryController extends Controller
         $entries = Entry::create($request->all());
 
         return response()->json([
-            'status' => 200,
-            'data'  => $entries
-        ]);
+          'message' => 'created successfully'
+        ],200);
 
-         if ($entries !== 200) :
+         if (response() !== 200) :
             echo "ERRO";
             die();
         endif;
