@@ -7,4 +7,14 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     //
+
+    public function register(){
+
+    }
+    public function show(){
+
+    }
+    public function destroy(){
+        
+    }
 }
