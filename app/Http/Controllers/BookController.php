@@ -40,7 +40,15 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+         $request->validate([
+            'book_id' => 'required',
+            'status' => 'required',
+            'name'=> 'required'
+        ]);
+        $book = Book::create($request->all());
+    return response()->json(['message' => 'Created successfully'], 200);
+
     }
 
     /**
@@ -62,7 +70,7 @@ class BookController extends Controller
      */
     public function edit(Book $book){
         return response()->json(
-            
+
         );
         //
     }

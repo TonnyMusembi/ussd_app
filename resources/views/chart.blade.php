@@ -7,7 +7,7 @@
     <title>Charts</title>
 </head>
 <body>
-    <h1>JaTon Ltd.io</h1>
+    <h1>JacTon Ltd.io</h1>
      <div id="google-line-chart" style="height: 500px"></div>
 
 </body>
