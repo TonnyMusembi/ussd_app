@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Item;
 use Illuminate\Http\Request;
 
 class VueItemController extends Controller
@@ -13,7 +13,12 @@ class VueItemController extends Controller
      */
     public function index()
     {
-        return view('');
+        $items = Item::latest()->pagination(10);
+        return response()->json([
+            'status' => 'success',
+            // 'data'  => $items
+        ]);
+
     }
 
     /**
@@ -38,7 +43,18 @@ class VueItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+     $this->validate($request,[
+        'title' => 'required',
+        'details' => 'required'
+        ]);
+
+
+    $items = Item::create($request->all());
+
+
+    return back()->with('info','You added new items, follow next step!');
+
     }
 
     /**
