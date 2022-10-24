@@ -9,12 +9,13 @@ class HomeController extends Controller
     //
 
     public function register(){
+        return view('user.register');
 
     }
     public function show(){
 
     }
     public function destroy(){
-        
+
     }
 }
