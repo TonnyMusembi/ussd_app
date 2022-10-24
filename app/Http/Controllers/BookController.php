@@ -30,7 +30,7 @@ class BookController extends Controller
     public function create()
     {
         return response()->json([
-            
+
         ]);
     }
 
@@ -98,5 +98,9 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         //
+       return response()->json([
+        'message' => 'deleted successfully',
+        'data' => $book
+       ]);
     }
 }

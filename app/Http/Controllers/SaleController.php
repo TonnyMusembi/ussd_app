@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Entry;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 
-class EntryController extends Controller
+class SaleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,7 @@ class EntryController extends Controller
      */
     public function index()
     {
-     $entries = Entry::latest()->paginate(10);
-     return response()->json([
-        'status' => 200,
-        'data' => $entries
-     ]);
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class EntryController extends Controller
      */
     public function create()
     {
-     return view();
+        //
     }
 
     /**
@@ -39,30 +35,16 @@ class EntryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'id' => 'required|integer',
-            'status_id' => 'required|integer',
-            'name' => 'required|string'
-        ]);
-        $entries = Entry::create($request->all());
-
-        return response()->json([
-          'message' => 'created successfully'
-        ],200);
-
-         if (response() !== 200) :
-            echo "ERRO";
-            die();
-        endif;
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Entry  $entry
+     * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function show(Entry $entry)
+    public function show(Sale $sale)
     {
         //
     }
@@ -70,10 +52,10 @@ class EntryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Entry  $entry
+     * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function edit(Entry $entry)
+    public function edit(Sale $sale)
     {
         //
     }
@@ -82,10 +64,10 @@ class EntryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Entry  $entry
+     * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Entry $entry)
+    public function update(Request $request, Sale $sale)
     {
         //
     }
@@ -93,16 +75,11 @@ class EntryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Entry  $entry
+     * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Entry $id)
+    public function destroy(Sale $sale)
     {
-     return  response()->json([
-
-        'message' => 'deleted successfuly',
-        'data'=> $id
-
-     ]);
+        //
     }
 }
