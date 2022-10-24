@@ -16,11 +16,10 @@ class LeagueController extends Controller
     {
         $leagues = League::latest()->paginate(10);
         return response()->json([
-              "status" => 200,
+            "status" => 200,
             "data" => $leagues
         ]);
     }
-
     /**
      * Show the form for creating a new resource.
      *

@@ -14,7 +14,11 @@ class EntryController extends Controller
      */
     public function index()
     {
-        //
+     $entries = Entry::latest()->paginate(10);
+     return response()->json([
+        'status' => 200,
+        'data' => $entries
+     ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class EntryController extends Controller
      */
     public function create()
     {
-        //
+     return view();
     }
 
     /**
@@ -35,7 +39,22 @@ class EntryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id' => 'required|integer',
+            'status_id' => 'required|integer',
+            'name' => 'required|string'
+        ]);
+        $entries = Entry::create($request->all());
+
+        return response()->json([
+            'status' => 200,
+            'data'  => $entries
+        ]);
+
+         if ($entries !== 200) :
+            echo "ERRO";
+            die();
+        endif;
     }
 
     /**

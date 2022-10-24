@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Authcontroller;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\EntryController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PredictionController;
@@ -52,3 +53,4 @@ Route::resource('students',StudentController::class);
 
 Route::resource('predictions',PredictionController::class);
 Route::resource('items',VueItemController::class );
+Route::resource('entries',EntryController::class);
