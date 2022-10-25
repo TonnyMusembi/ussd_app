@@ -19,7 +19,7 @@ class TestController extends Controller
      $tests =Test::latest()->paginate(10);
      return response()->json([
         'message'=> 'selected successful',
-        'data' => $tests
+        'status' => 'sucess'
      ],200);
     }
 
