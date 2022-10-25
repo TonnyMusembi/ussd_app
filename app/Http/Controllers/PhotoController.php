@@ -44,9 +44,8 @@ class PhotoController extends Controller
     {
         $request ->validate([
             'id' => 'required',
-            'name' => 'required',
-            'url'   => 'required'
-
+            'url'   => 'required',
+            'name' => 'required'
         ]);
 
         $photos = Photo::create($request->all());
