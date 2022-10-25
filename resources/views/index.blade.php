@@ -32,7 +32,6 @@
             </form>
 
         </div>
-
     </div>
 </body>
 </html>
@@ -42,4 +41,10 @@
 for (let i = 0; i <= arr.length; i++) {
   console.log(arr[i]);
 }
+
+fetch('http://ussd.test/api/students').then((response) => {
+    console.log(response)
+}).then((data) => {
+
+})
 </script>

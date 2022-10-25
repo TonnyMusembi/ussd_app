@@ -89,6 +89,11 @@ class StudentController extends Controller
     public function update(Request $request, Student $student)
     {
         $request ->validate([
+            'id' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'password' => 'required'
 
         ]);
     }
