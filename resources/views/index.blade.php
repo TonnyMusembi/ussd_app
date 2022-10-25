@@ -21,14 +21,12 @@
             </div>
         </form>
     </div>
-
-
     <div class="container mt-5" style="max-width: 500px">
         <div class=" card-body">
             <div class="card-header">Data</div>
             <form action="">
                 <div class="d-grid mt-3">
-                 <button class="btn btn-success">Pull</button>
+                 <button class="btn btn-primary">Pull</button>
                 </div>
             </form>
 
@@ -37,3 +35,10 @@
     </div>
 </body>
 </html>
+<script>
+ const arr = [ 1, 2, 3 ];
+
+for (let i = 0; i <= arr.length; i++) {
+  console.log(arr[i]);
+}
+</script>
