@@ -15,10 +15,10 @@ class PhotoController extends Controller
     public function index()
     {
 
-    $photos = Photo::all();
+    $photos = Photo::latest()->paginate(10);
     return response()->json([
         "message" => 'successfuly',
-        "status" => 'success'
+        "status" => $photos
     ],200);
 
     }
@@ -31,6 +31,7 @@ class PhotoController extends Controller
     public function create()
     {
         //
+        return view('photo.create');
     }
 
     /**
@@ -41,6 +42,15 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
+        $request ->validate([
+            'id' => 'required',
+            'name' => 'required',
+            'url'   => 'required'
+
+        ]);
+
+        $photos = Photo::create($request->all());
+
      return response()->json([
         "message" => 'successful',
         "status" => 'success'
