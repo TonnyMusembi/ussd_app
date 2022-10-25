@@ -26,6 +26,9 @@
             <div class="card-header">Data</div>
             <form action="">
                 @csrf
+                <div class="form-group">
+
+                </div>
                 <div class="d-grid mt-3">
                  <button class="btn btn-primary">Pull</button>
                 </div>
@@ -45,7 +48,7 @@ for (let i = 0; i <= arr.length; i++) {
 fetch('http://ussd.test/api/students').then((resp) => {
     return resp.json()
 })
-.then(data => console.log(data.data))
+.then(data => console.log(data))
 .catch((error) => {
     console.log(error)
 })
