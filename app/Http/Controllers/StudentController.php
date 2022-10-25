@@ -42,6 +42,19 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
+        $request -> validate([
+            'id' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+        $students = Student::create($request->all());
+
+        return response()->json([
+            'message' => 'created successfully'
+
+        ]);
 
     }
 
@@ -76,7 +89,9 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $request ->validate([
+
+        ]);
     }
 
     /**
