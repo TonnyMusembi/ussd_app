@@ -30,7 +30,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-     return view('');
+     return view('student.create');
     }
 
     /**
@@ -51,7 +51,8 @@ class StudentController extends Controller
         $students = Student::create($request->all());
 
         return response()->json([
-            'message' => 'created successfully'
+            'message' => 'created successfully',
+            'status' =>  200
         ],200);
 
     }
