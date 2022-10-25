@@ -29,9 +29,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return response()->json([
-
-        ]);
+      return view('');
     }
 
     /**

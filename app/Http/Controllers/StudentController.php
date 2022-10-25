@@ -41,7 +41,6 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $request -> validate([
             'id' => 'required',
             'name' => 'required',
@@ -53,8 +52,7 @@ class StudentController extends Controller
 
         return response()->json([
             'message' => 'created successfully'
-
-        ]);
+        ],200);
 
     }
 
