@@ -93,6 +93,7 @@ class PhotoController extends Controller
             'url' => 'required',
             'name' => 'required'
         ]);
+        
      return response()->json([
 
      ]);
