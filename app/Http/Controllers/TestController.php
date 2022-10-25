@@ -19,7 +19,7 @@ class TestController extends Controller
      $tests =Test::latest()->paginate(10);
      return response()->json([
         'message'=> 'selected successful',
-        'status' => 'sucess'
+        'data' => $tests
      ],200);
     }
 
@@ -64,6 +64,7 @@ class TestController extends Controller
     public function show(Test $test)
     {
         //
+        return view('test.show');
     }
 
     /**
@@ -98,5 +99,10 @@ class TestController extends Controller
     public function destroy(Test $test)
     {
         //
+        return response()->json([
+            'message' => 'deleted successfully'
+
+        ]);
     }
 }
+
