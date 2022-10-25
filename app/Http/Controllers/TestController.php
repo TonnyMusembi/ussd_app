@@ -21,7 +21,6 @@ class TestController extends Controller
         'message'=> 'selected successful',
         'data' => $tests
      ],200);
-
     }
 
     /**
