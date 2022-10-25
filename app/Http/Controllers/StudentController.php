@@ -30,7 +30,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-     return view('');
+     return view('student.create');
     }
 
     /**
@@ -41,8 +41,20 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    
+        $request -> validate([
+            'id' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+        $students = Student::create($request->all());
+
+        return response()->json([
+            'message' => 'created successfully',
+            'status' =>  200
+        ],200);
+
     }
 
     /**
@@ -76,7 +88,9 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $request ->validate([
+
+        ]);
     }
 
     /**
@@ -87,6 +101,9 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+      return response()->json([
+        'message' => 'deleted successfully',
+        'data' => $student
+      ]);
     }
 }

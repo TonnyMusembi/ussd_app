@@ -25,6 +25,7 @@
         <div class=" card-body">
             <div class="card-header">Data</div>
             <form action="">
+                @csrf
                 <div class="d-grid mt-3">
                  <button class="btn btn-primary">Pull</button>
                 </div>
