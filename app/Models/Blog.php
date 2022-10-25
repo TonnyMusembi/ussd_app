@@ -5,13 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Entry extends Model
+class Blog extends Model
 {
-    protected  $fillable = [
-        'id',
-        'status_id',
-        'name'
-
-    ];
     use HasFactory;
+    public $fillable = [
+        'title',
+    ];
 }

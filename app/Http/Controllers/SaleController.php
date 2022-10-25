@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\League;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 
-class LeagueController extends Controller
+class SaleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +14,9 @@ class LeagueController extends Controller
      */
     public function index()
     {
-        $leagues = League::latest()->paginate(10);
-        return response()->json([
-            "status" => 200,
-            "data" => $leagues
-        ]);
+        //
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +24,7 @@ class LeagueController extends Controller
      */
     public function create()
     {
-        return view('league.create');
+        //
     }
 
     /**
@@ -38,26 +35,16 @@ class LeagueController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->validate([
-            'league_id' => 'required',
-            'name' => 'required',
-            'country'=> 'required'
-        ]);
-        $leagues = League::create($request->all());
-        return [
-            "status" => 200,
-            "data" => $leagues
-        ];
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\League  $league
+     * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function show(League $league)
+    public function show(Sale $sale)
     {
         //
     }
@@ -65,10 +52,10 @@ class LeagueController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\League  $league
+     * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function edit(League $league)
+    public function edit(Sale $sale)
     {
         //
     }
@@ -77,10 +64,10 @@ class LeagueController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\League  $league
+     * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, League $league)
+    public function update(Request $request, Sale $sale)
     {
         //
     }
@@ -88,10 +75,10 @@ class LeagueController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\League  $league
+     * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function destroy(League $league)
+    public function destroy(Sale $sale)
     {
         //
     }

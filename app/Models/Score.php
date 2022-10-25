@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Entry extends Model
+class Score extends Model
 {
-    protected  $fillable = [
-        'id',
-        'status_id',
-        'name'
-
-    ];
     use HasFactory;
+    protected $fillable =[
+        'score_id',
+        'name',
+        'country'
+    ];
 }
