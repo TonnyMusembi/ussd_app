@@ -42,7 +42,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
-    
+
     }
 
     /**
@@ -87,6 +87,9 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+      return response()->json([
+        'message' => 'deleted successfully',
+        'data' => $student
+      ]);
     }
 }

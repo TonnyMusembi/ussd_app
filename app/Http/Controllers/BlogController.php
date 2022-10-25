@@ -19,8 +19,24 @@ class BlogController extends Controller
        if($validator) {
           Blog::create($request->all());
        }
-
        return back()->with('success', 'Blog created.');
+
+    }
+
+    public function update(Request $request ,Blog $blog){
+        $request -> validate([
+            'title' => 'required'
+        ]);
+        $blog-> title = $request->get('title');
+        $blog -> save();
+
+      return redirect('/Blog/index/')->with('success', 'Blog updated!');
+    }
+    public function destroy($id){
+        return response()->json([
+            'message' => 'deleted successfully',
+            'data' => $id
+        ]);
 
     }
 }
