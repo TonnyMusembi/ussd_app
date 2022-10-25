@@ -44,9 +44,8 @@ class PhotoController extends Controller
     {
         $request ->validate([
             'id' => 'required',
-            'name' => 'required',
-            'url'   => 'required'
-
+            'url'   => 'required',
+            'name' => 'required'
         ]);
 
         $photos = Photo::create($request->all());
@@ -89,6 +88,11 @@ class PhotoController extends Controller
      */
     public function update(Request $request, Photo $photo)
     {
+        $request -> validate([
+            'id' => 'required',
+            'url' => 'required',
+            'name' => 'required'
+        ]);
      return response()->json([
 
      ]);
