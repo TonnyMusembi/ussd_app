@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Photo;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
-class PhotoController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,13 @@ class PhotoController extends Controller
      */
     public function index()
     {
+        //
+        $project = Project::query();
+        if (request('term')) {
+            $project->where('name', 'Like', '%' . request('term') . '%');
+        }
 
-    $photos = Photo::latest()->paginate(10);
-    return response()->json([
-        "message" => 'successfuly',
-        "status" => $photos
-    ],200);
-
+        return $project->orderBy('id', 'DESC')->paginate(10);
     }
 
     /**
@@ -31,7 +31,6 @@ class PhotoController extends Controller
     public function create()
     {
         //
-        return view('photo.create');
     }
 
     /**
@@ -42,28 +41,16 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        $request ->validate([
-            'id' => 'required',
-            'url'   => 'required',
-            'name' => 'required'
-        ]);
-
-        $photos = Photo::create($request->all());
-
-     return response()->json([
-        "message" => 'successful',
-        "status" => 'success'
-     ],200);
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Photo  $photo
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Photo $photo)
+    public function show(Project $project)
     {
         //
     }
@@ -71,10 +58,10 @@ class PhotoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Photo  $photo
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Photo $photo)
+    public function edit(Project $project)
     {
         //
     }
@@ -83,32 +70,31 @@ class PhotoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Photo  $photo
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Photo $photo)
+    public function update(Request $request, Project $project)
     {
-        $request -> validate([
-            'id' => 'required',
-            'url' => 'required',
+        //
+        $project ->validate([
+            'project_id' => 'required',
             'name' => 'required'
         ]);
-        
-     return response()->json([
-
-     ]);
+        $project = Project::create($request->all());
+        return response()->json([
+            'message' => 'created successfully',
+         'status' => 200
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Photo  $photo
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-
-    $photo = Photo::find($id);
-    $photo->delete();
+        //
     }
 }
