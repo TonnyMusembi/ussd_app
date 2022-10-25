@@ -28,8 +28,7 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
      return view('student.create');
     }
 
@@ -65,7 +64,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return view('student');
     }
 
     /**

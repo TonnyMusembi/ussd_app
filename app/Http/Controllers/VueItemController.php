@@ -13,10 +13,10 @@ class VueItemController extends Controller
      */
     public function index()
     {
-        $items = Item::latest()->pagination(10);
+        $items = Item::latest()->paginate(10);
         return response()->json([
             'status' => 'success',
-            // 'data'  => $items
+            'data'  => $items
         ]);
 
     }
@@ -33,6 +33,7 @@ class VueItemController extends Controller
     public function create()
     {
         //
+        return view('item.create');
     }
 
     /**
@@ -89,6 +90,10 @@ class VueItemController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request ->validate([
+            'title' => 'required',
+            'description' => 'required'
+        ]);
     }
 
     /**
@@ -99,6 +104,10 @@ class VueItemController extends Controller
      */
     public function destroy($id)
     {
-      
+        return response()->json([
+            'message' => 'deleted successful',
+            'data' => $id
+        ]);
+
     }
 }
