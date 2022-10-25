@@ -88,6 +88,11 @@ class PhotoController extends Controller
      */
     public function update(Request $request, Photo $photo)
     {
+        $request -> validate([
+            'id' => 'required',
+            'url' => 'required',
+            'name' => 'required'
+        ]);
      return response()->json([
 
      ]);
