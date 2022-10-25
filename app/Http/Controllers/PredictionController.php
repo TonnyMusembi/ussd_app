@@ -15,7 +15,7 @@ class PredictionController extends Controller
     public function index()
     {
         //
-        $predictions = Prediction::all();
+        $predictions = Prediction::latest()->paginate(10);
         return response()->json([
               "status" => 200,
             "data" => $predictions
@@ -41,17 +41,6 @@ class PredictionController extends Controller
     public function store(Request $request)
     {
         //
-
-         $request->validate([
-            'prediction_id' => 'required',
-            'name' => 'required',
-            'league'=> 'required'
-        ]);
-        $prediction = Prediction::create($request->all());
-        return [
-            "status" => 200,
-            "data" => $prediction
-        ];
     }
 
     /**
