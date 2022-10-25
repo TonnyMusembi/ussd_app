@@ -49,11 +49,8 @@ class VueItemController extends Controller
         'title' => 'required',
         'details' => 'required'
         ]);
-
-
     $items = Item::create($request->all());
-
-
+    
     return back()->with('info','You added new items, follow next step!');
 
     }

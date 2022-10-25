@@ -16,12 +16,11 @@ class TestController extends Controller
      */
     public function index()
     {
-     $tests =Test::all();
+     $tests =Test::latest()->paginate(10);
      return response()->json([
         'message'=> 'selected successful',
-        'status' => $tests
+        'status' => 'sucess'
      ],200);
-
     }
 
     /**
@@ -30,7 +29,7 @@ class TestController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-
+        return view('test.create');
     }
 
     /**
@@ -41,6 +40,16 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
+        $request -> validate([
+            'test_id' => 'required',
+            'status' =>  'required',
+            'name'   => 'required'
+        ]);
+        $tests = Test::create($request->all());
+        return response()->json([
+            'message' => 'created successfully',
+            'status' => 200
+        ]);
         Transaction::create([
 
         ]);
