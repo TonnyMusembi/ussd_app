@@ -19,7 +19,7 @@ class TestController extends Controller
      $tests =Test::all();
      return response()->json([
         'message'=> 'selected successful',
-        'status' => 'sucess'
+        'status' => $tests
      ],200);
 
     }
