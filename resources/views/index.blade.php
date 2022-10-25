@@ -42,8 +42,8 @@ for (let i = 0; i <= arr.length; i++) {
   console.log(arr[i]);
 }
 
-fetch('http://ussd.test/api/students').then((response) => {
-    return response.json()
+fetch('http://ussd.test/api/students').then((resp) => {
+    return resp.json()
 })
 .then(data => console.log(data.data))
 .catch((error) => {
