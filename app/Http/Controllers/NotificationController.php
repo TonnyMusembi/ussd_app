@@ -15,8 +15,11 @@ class NotificationController extends Controller
     public function index()
     {
         //
+        $notification = Notification::latest()->paginate(10);
         return response()->json([
-            
+            'message' => 'selected successfully',
+            'data' => $notification
+
         ]);
     }
 
@@ -27,7 +30,7 @@ class NotificationController extends Controller
      */
     public function create()
     {
-        //
+     return view('notification.create');
     }
 
     /**
@@ -38,7 +41,18 @@ class NotificationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> validate([
+            'notification_id' => 'required',
+            'notification_type' => 'required'
+        ]);
+        $notification = Notification::create($request->all());
+
+        return response()->json([
+            'message' => 'created successfully',
+            'status' => 200
+        ]);
+
+
     }
 
     /**
@@ -84,5 +98,10 @@ class NotificationController extends Controller
     public function destroy(Notification $notification)
     {
         //
+        return response()->json([
+            'message' => 'deleted successfully',
+
+
+        ]);
     }
 }
