@@ -30,7 +30,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('project.create');
     }
 
     /**
@@ -50,6 +50,10 @@ class ProjectController extends Controller
            'name' =>  'required'
         ]);
        $project = Project::create($request->all());
+       return response()->json([
+        'message' => 'Created successfully',
+        'status' =>  200
+       ]);
 
     }
 
@@ -107,5 +111,9 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
+        return response()->json([
+            'message' => 'deleted successfully',
+            
+        ]);
     }
 }
