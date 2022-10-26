@@ -48,9 +48,11 @@ class RewardController extends Controller
         $reward  = Reward::create($request->all());
 
         return response()->json([
-            'message' => 'created successfully'
+            'message' => 'created successfully',
+            'status' => 200
 
         ],200);
+
     }
 
     /**
@@ -86,6 +88,13 @@ class RewardController extends Controller
     public function update(Request $request, Reward $reward)
     {
         //
+        $this->validate($request,[
+            'id' => 'required',
+            'reward_id' => 'required',
+            'reward_name' => 'required'
+
+        ]);
+        
     }
 
     /**

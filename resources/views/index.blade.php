@@ -28,7 +28,6 @@
                 @csrf
                 <div class="form-group">
                     {{-- <input type="text" name="Next"> --}}
-
                 </div>
                 <div class="d-grid mt-3">
                  <button class="btn btn-primary">Pull</button>
