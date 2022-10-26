@@ -14,7 +14,6 @@ class RewardController extends Controller
      */
     public function index()
     {
-        //
         $reward = Reward::latest()->paginate(10);
         return response()->json([
             'message' => 'selected successfully',
@@ -94,7 +93,7 @@ class RewardController extends Controller
             'reward_name' => 'required'
 
         ]);
-        
+
     }
 
     /**
