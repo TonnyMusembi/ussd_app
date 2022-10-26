@@ -17,6 +17,7 @@ class RewardController extends Controller
         //
         $reward = Reward::latest()->paginate(10);
         return response()->json([
+            'message' => 'selected successfully',
             'data' => $reward
         ],200);
     }
@@ -28,7 +29,7 @@ class RewardController extends Controller
      */
     public function create()
     {
-        //
+        return view('reward.create');
     }
 
     /**
@@ -47,8 +48,9 @@ class RewardController extends Controller
         $reward  = Reward::create($request->all());
 
         return response()->json([
+            'message' => 'created successfully'
 
-        ]);
+        ],200);
     }
 
     /**
@@ -60,7 +62,7 @@ class RewardController extends Controller
     public function show(Reward $reward)
     {
         //
-    
+
     }
 
     /**

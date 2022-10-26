@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="container mt-5" style="max-width: 500px">
-        <form action="{{ route('validate.exists') }}" method="post">
+        <form action="{{ route('books.index') }}" method="post">
             @csrf
             <div class="form-group">
                 <input class="form-control" name="title" value="{{ old('title') }}">
@@ -27,6 +27,7 @@
             <form action="">
                 @csrf
                 <div class="form-group">
+                    {{-- <input type="text" name="Next"> --}}
 
                 </div>
                 <div class="d-grid mt-3">
