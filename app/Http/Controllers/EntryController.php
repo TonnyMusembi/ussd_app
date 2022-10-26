@@ -102,7 +102,6 @@ class EntryController extends Controller
 
         'message' => 'deleted successfuly',
         'data'=> $id
-
      ]);
     }
 }
