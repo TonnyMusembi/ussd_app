@@ -16,8 +16,8 @@ class ProjectController extends Controller
     {
         //
         $project = Project::query();
-        if (request('term')) {
-            $project->where('name', 'Like', '%' . request('term') . '%');
+        if (request('name')) {
+            $project->where('name', 'Like', '%' . request('name') . '%');
         }
 
         return $project->orderBy('id', 'DESC')->paginate(10);
@@ -41,7 +41,16 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request = validator([
+        //     'project_id' => 'required',
+        //     'name' =>  'required'
+        // ]);
+        $this ->validate($request,[
+           'project_id' => 'required',
+           'name' =>  'required'
+        ]);
+       $project = Project::create($request->all());
+
     }
 
     /**
@@ -52,7 +61,9 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+     return response()->json([
+
+     ]);
     }
 
     /**
