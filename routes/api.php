@@ -8,6 +8,7 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PredictionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\RewardController;
 use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TestController;
@@ -59,3 +60,5 @@ Route::resource('entries',EntryController::class);
 Route::resource('scores',ScoreController::class);
 
 Route::resource('projects',ProjectController::class);
+
+Route::resource('rewards',RewardController::class);

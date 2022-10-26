@@ -15,6 +15,10 @@ class RewardController extends Controller
     public function index()
     {
         //
+        $reward = Reward::latest()->paginate(10);
+        return response()->json([
+            'data' => $reward
+        ],200);
     }
 
     /**
@@ -35,7 +39,16 @@ class RewardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this ->validate($request,[
+            'id' => 'required',
+            'reward_id' => 'required',
+            'reward_name' => 'required'
+        ]);
+        $reward  = Reward::create($request->all());
+
+        return response()->json([
+
+        ]);
     }
 
     /**
@@ -47,6 +60,7 @@ class RewardController extends Controller
     public function show(Reward $reward)
     {
         //
+    
     }
 
     /**
