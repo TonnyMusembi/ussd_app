@@ -14,13 +14,16 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
-        $project = Project::query();
-        if (request('name')) {
-            $project->where('name', 'Like', '%' . request('name') . '%');
-        }
+        $project = Project::latest()->paginate(10);
+        // if (request('name')) {
+        //     $project->where('name', 'Like', '%' . request('name') . '%');
+        // }
 
-        return $project->orderBy('id', 'DESC')->paginate(10);
+        // return $project->orderBy('id', 'DESC')->paginate(10);
+        return response()->json([
+            'message' => 'selected successfully',
+            'data' => $project
+        ]);
     }
 
     /**
@@ -63,11 +66,9 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
-    {
-     return response()->json([
+    public function show(Project $project){
 
-     ]);
+
     }
 
     /**
@@ -96,6 +97,7 @@ class ProjectController extends Controller
             'name' => 'required'
         ]);
         $project = Project::create($request->all());
+
         return response()->json([
             'message' => 'created successfully',
          'status' => 200
@@ -113,7 +115,7 @@ class ProjectController extends Controller
         //
         return response()->json([
             'message' => 'deleted successfully',
-            
+
         ]);
     }
 }
