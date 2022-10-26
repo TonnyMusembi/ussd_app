@@ -45,7 +45,8 @@ for (let i = 0; i <= arr.length; i++) {
   console.log(arr[i]);
 }
 
-fetch('http://ussd.test/api/tests').then((resp) => {
+const url = 'http://ussd.test/api/tests'
+fetch(url).then((resp) => {
     return resp.json()
 })
 .then(data => console.log(data))
