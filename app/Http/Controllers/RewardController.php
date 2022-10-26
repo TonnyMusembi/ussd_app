@@ -17,6 +17,7 @@ class RewardController extends Controller
         //
         $reward = Reward::latest()->paginate(10);
         return response()->json([
+            'message' => 'selected successfully',
             'data' => $reward
         ],200);
     }
@@ -28,7 +29,7 @@ class RewardController extends Controller
      */
     public function create()
     {
-        //
+        return view('reward.create');
     }
 
     /**
@@ -47,8 +48,11 @@ class RewardController extends Controller
         $reward  = Reward::create($request->all());
 
         return response()->json([
+            'message' => 'created successfully',
+            'status' => 200
 
-        ]);
+        ],200);
+
     }
 
     /**
@@ -60,7 +64,7 @@ class RewardController extends Controller
     public function show(Reward $reward)
     {
         //
-    
+
     }
 
     /**
@@ -84,6 +88,13 @@ class RewardController extends Controller
     public function update(Request $request, Reward $reward)
     {
         //
+        $this->validate($request,[
+            'id' => 'required',
+            'reward_id' => 'required',
+            'reward_name' => 'required'
+
+        ]);
+        
     }
 
     /**
