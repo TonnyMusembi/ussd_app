@@ -4,6 +4,7 @@ use App\Http\Controllers\Authcontroller;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\LeagueController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PredictionController;
 use App\Http\Controllers\ProductController;
@@ -62,3 +63,5 @@ Route::resource('scores',ScoreController::class);
 Route::resource('projects',ProjectController::class);
 
 Route::resource('rewards',RewardController::class);
+
+Route::resource('notifications',NotificationController::class);

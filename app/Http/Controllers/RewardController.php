@@ -13,7 +13,7 @@ class RewardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+   {
         $reward = Reward::latest()->paginate(10);
         return response()->json([
             'message' => 'selected successfully',
