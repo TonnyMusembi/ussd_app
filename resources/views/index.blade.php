@@ -30,7 +30,7 @@
                     {{-- <input type="text" name="Next"> --}}
                 </div>
                 <div class="d-grid mt-3">
-                 <button class="btn btn-primary">Pull</button>
+                 <button  type="button" class="btn btn-primary">Pull</button>
                 </div>
             </form>
 
