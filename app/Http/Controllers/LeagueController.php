@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\League;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class LeagueController extends Controller
 {
@@ -39,15 +41,24 @@ class LeagueController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
+       $validator = Validator::make($request->all(),[
             'league_id' => 'required',
             'name' => 'required',
-            'country'=> 'required'
+            'country' => 'required'
         ]);
-        $leagues = League::create($request->all());
+
+        if($validator->fails()){
+            return response()->json($validator->errors());
+        }
+        $leagues = League::create([
+            'league_id' =>$request->league_id,
+            'name'=> $request->name,
+            'country'=>$request->country
+        ]);
         return [
+            'message' => 'created successfulfy',
             "status" => 200,
-            "data" => $leagues
+
         ];
     }
 
@@ -94,5 +105,6 @@ class LeagueController extends Controller
     public function destroy(League $league)
     {
         //
+        $league->delete();
     }
 }
