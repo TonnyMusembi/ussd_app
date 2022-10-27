@@ -15,11 +15,11 @@ class ProjectController extends Controller
     public function index()
     {
         $project = Project::latest()->paginate(10);
-        // if (request('name')) {
-        //     $project->where('name', 'Like', '%' . request('name') . '%');
-        // }
+        if (request('name')) {
+            $project->where('name', 'Like', '%' . request('name') . '%');
+        }
 
-        // return $project->orderBy('id', 'DESC')->paginate(10);
+        // return $project;
         return response()->json([
             'message' => 'selected successfully',
             'data' => $project
