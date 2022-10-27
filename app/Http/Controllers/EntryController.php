@@ -28,7 +28,7 @@ class EntryController extends Controller
      */
     public function create()
     {
-     return view();
+     return view('entry.create');
     }
 
     /**
@@ -102,7 +102,6 @@ class EntryController extends Controller
 
         'message' => 'deleted successfuly',
         'data'=> $id
-
      ]);
     }
 }

@@ -25,6 +25,9 @@ class FileController extends Controller
 
 
     }
+    public function  create(){
+
+    }
     public function destroy(){
         return response()->json([
             'message'=>'successful',

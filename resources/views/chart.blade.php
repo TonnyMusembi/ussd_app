@@ -7,7 +7,7 @@
     <title>Charts</title>
 </head>
 <body>
-    <h1>JacTon Ltd.io</h1>
+    <h1>JaTon Ltd.io</h1>
      <div id="google-line-chart" style="height: 500px"></div>
 
 </body>
@@ -28,13 +28,11 @@
                 }
             @endphp
     ]);
-
     var options = {
       title: 'Register Users Month Wise',
       curveType: 'function',
       legend: { position: 'bottom' }
     };
-
       var chart = new google.visualization.LineChart(document.getElementById('google-line-chart'));
 
       chart.draw(data, options);
