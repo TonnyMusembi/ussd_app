@@ -6,6 +6,7 @@ use App\Http\Controllers\EntryController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\PopulationController;
 use App\Http\Controllers\PredictionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProjectController;
@@ -66,3 +67,5 @@ Route::resource('projects',ProjectController::class);
 Route::resource('rewards',RewardController::class);
 
 Route::resource('notifications',NotificationController::class);
+
+Route::resource('populations',PopulationController::class);
