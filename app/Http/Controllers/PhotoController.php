@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Photo;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator;
 class PhotoController extends Controller
 {
     /**
@@ -42,13 +42,20 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        $request ->validate([
-            'id' => 'required',
-            'url'   => 'required',
-            'name' => 'required'
-        ]);
+         $validator = Validator::make($request->all,[
+        'id' =>'required',
+        'name' => 'required',
+        'url' => 'required|string|confirmed|min:6'
+    ]);
+    if($validator->fails()){
+            return response()->json($validator->errors());
+        }
 
-        $photos = Photo::create($request->all());
+        $photos = Photo::create([
+            'id' =>$request->id,
+            'name' =>$request->name,
+            'url' =>$request->url
+        ]);
 
      return response()->json([
         "message" => 'successful',
@@ -93,7 +100,7 @@ class PhotoController extends Controller
             'url' => 'required',
             'name' => 'required'
         ]);
-        
+
      return response()->json([
 
      ]);

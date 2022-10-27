@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Entry;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class EntryController extends Controller
 {
@@ -39,12 +40,19 @@ class EntryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'id' => 'required|integer',
-            'status_id' => 'required|integer',
-            'name' => 'required|string'
+         $validator = Validator::make($request->all,[
+        // 'id' =>'required',
+        'status_id' => 'required',
+        'name' => 'required'
+    ]);
+    if($validator->fails()){
+            return response()->json($validator->errors());
+        }
+        $entries = Entry::create([
+            // 'id'=> $request->id,
+            'status_id' =>$request->status_id,
+            'name' => $request->name
         ]);
-        $entries = Entry::create($request->all());
 
         return response()->json([
           'message' => 'created successfully'
