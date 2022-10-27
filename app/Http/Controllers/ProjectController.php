@@ -62,10 +62,8 @@ class ProjectController extends Controller
         'name' => $request->name
 
        ]);
-    //    return response()->json([
-    //     'message' => 'Created successfully',
-    //     'status' =>  200
-    //    ]);
+     return response()->json(['Program created successfully.']);
+
 
     }
 
