@@ -40,7 +40,6 @@ class LeagueController extends Controller
      */
     public function store(Request $request)
     {
-
        $validator = Validator::make($request->all(),[
             'league_id' => 'required',
             'name' => 'required',
@@ -72,6 +71,9 @@ class LeagueController extends Controller
     {
         //
     }
+    public function select(){
+
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -94,9 +96,9 @@ class LeagueController extends Controller
     public function update(Request $request, League $league)
     {
         //
-        $validator = Validator::make($request->all(),
-    [
-        
+        $validator = Validator::make($request->all(),[
+
+
     ]);
     }
 
@@ -106,11 +108,21 @@ class LeagueController extends Controller
      * @param  \App\Models\League  $league
      * @return \Illuminate\Http\Response
      */
-    public function destroy(League $league)
+    public function destroy(League $league,$id)
     {
         //
-        $league->delete();
-        return response()->json('deleted successfully');
+
+        $league = League::where('id',$id)->delete();
+    // dd($data);
+    if($league > 0 ){
+
+        return response()->json(['message'=>'Successfully Deleted']);
+    }
+    else{
+        return response()->json(['message'=>'Delete Failed']);
+    }
+        // $league->delete();
+        // return response()->json('deleted successfully');
 
     }
 }

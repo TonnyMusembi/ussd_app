@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class VueItemController extends Controller
 {
@@ -45,13 +46,22 @@ class VueItemController extends Controller
     public function store(Request $request)
     {
 
-     $this->validate($request,[
-        'title' => 'required',
-        'details' => 'required'
+       $validator = Validator::make($request->all(),[
+            // 'id' => 'required',
+            'title' => 'required',
+            'description' => 'required'
         ]);
-    $items = Item::create($request->all());
-    
-    return back()->with('info','You added new items, follow next step!');
+
+        if($validator->fails()){
+            return response()->json($validator->errors());
+        }
+    $items = Item::create([
+        // 'id' =>$request->id,
+        'title'=>$request->title,
+        'descriptio'=>$request->description
+    ]);
+
+    // return back()->with('info','You added new items, follow next step!');
 
     }
 
