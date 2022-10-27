@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reward;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class RewardController extends Controller
 {
@@ -39,12 +40,20 @@ class RewardController extends Controller
      */
     public function store(Request $request)
     {
-        $this ->validate($request,[
+     $validator = Validator::make($request->all(),[
             'id' => 'required',
             'reward_id' => 'required',
             'reward_name' => 'required'
         ]);
-        $reward  = Reward::create($request->all());
+
+        if($validator->fails()){
+            return response()->json($validator->errors());
+        }
+        $reward  = Reward::create([
+            'id' => $request->id,
+            'reward_id' =>$request->reward_id,
+            'reward_name' => $request->reward_name
+        ]);
 
         return response()->json([
             'message' => 'created successfully',
