@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="container mt-5" style="max-width: 500px">
-        <form action="{{ route('books.index') }}" method="post">
+        <form action="{{ route('leagues.index') }}" method="post">
             @csrf
             <div class="form-group">
                 <input class="form-control" name="title" value="{{ old('title') }}">

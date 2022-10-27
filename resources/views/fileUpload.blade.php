@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="">
+    <div class="container mt-5" style="max-width: 500px">
         <div class="alert alert-primary mb-4 text-center">
            <h2 class="display-6">File Upload</h2>
         </div>
