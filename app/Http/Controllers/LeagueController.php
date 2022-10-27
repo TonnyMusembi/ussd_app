@@ -94,6 +94,10 @@ class LeagueController extends Controller
     public function update(Request $request, League $league)
     {
         //
+        $validator = Validator::make($request->all(),
+    [
+        
+    ]);
     }
 
     /**
@@ -106,5 +110,7 @@ class LeagueController extends Controller
     {
         //
         $league->delete();
+        return response()->json('deleted successfully');
+
     }
 }
