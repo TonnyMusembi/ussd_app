@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class StudentController extends Controller
 {
@@ -39,14 +40,26 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $request -> validate([
+
+       $validator = Validator::make($request->all(),[
             'id' => 'required',
             'name' => 'required',
-            'phone' => 'required',
-            'email' => 'required',
+            'phone' =>'required',
+            'email' =>'required',
             'password' => 'required'
+            // 'country' => 'required'
         ]);
-        $students = Student::create($request->all());
+
+        if($validator->fails()){
+            return response()->json($validator->errors());
+        }
+        $students = Student::create([
+            'id'=>$request->id,
+            'name'=>$request->name,
+            'phone' =>$request->phone,
+            'email' =>$request->email,
+            'password' =>$request->password
+        ]);
 
         return response()->json([
             'message' => 'created successfully',
@@ -61,9 +74,14 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show(Student $student,$id)
     {
-        return view('student');
+       $student = Student::find($id);
+        if (is_null($student)) {
+            return response()->json('Data not found', 404);
+        }
+        return response()->json([($student)]);
+
     }
 
     /**
@@ -104,9 +122,9 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
+        $student->delete();
       return response()->json([
         'message' => 'deleted successfully',
-        'data' => $student
       ]);
     }
 }

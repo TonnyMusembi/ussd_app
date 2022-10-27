@@ -53,10 +53,7 @@ class ProjectController extends Controller
         if($validator->fails()){
             return response()->json($validator->errors());
         }
-    //     $this ->validate($request,[
-    //        'project_id' => 'required',
-    //        'name' =>  'required'
-    //     ]);
+        
        $project = Project::create([
         'project_id' => $request->project_id,
         'name' => $request->name
