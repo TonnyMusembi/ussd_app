@@ -61,6 +61,7 @@ Route::resource('entries',EntryController::class);
 Route::resource('scores',ScoreController::class);
 
 Route::resource('projects',ProjectController::class);
+// Route::post('projects',ProjectController::class);
 
 Route::resource('rewards',RewardController::class);
 
