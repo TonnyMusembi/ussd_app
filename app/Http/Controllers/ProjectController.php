@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
@@ -44,19 +45,27 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        // $request = validator([
-        //     'project_id' => 'required',
-        //     'name' =>  'required'
-        // ]);
-        $this ->validate($request,[
-           'project_id' => 'required',
-           'name' =>  'required'
+        $validator = Validator::make($request->all(),[
+            'project_id' => 'required',
+            'name' => 'required'
         ]);
-       $project = Project::create($request->all());
-       return response()->json([
-        'message' => 'Created successfully',
-        'status' =>  200
+
+        if($validator->fails()){
+            return response()->json($validator->errors());
+        }
+    //     $this ->validate($request,[
+    //        'project_id' => 'required',
+    //        'name' =>  'required'
+    //     ]);
+       $project = Project::create([
+        'project_id' => $request->project_id,
+        'name' => $request->name
+
        ]);
+    //    return response()->json([
+    //     'message' => 'Created successfully',
+    //     'status' =>  200
+    //    ]);
 
     }
 
@@ -66,8 +75,12 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project){
-
+    public function show(Project $project,$id){
+ $project = Project::find($id);
+        if (is_null($project)) {
+            return response()->json('Data not found', 404);
+        }
+        return response()->json([($project)]);
 
     }
 

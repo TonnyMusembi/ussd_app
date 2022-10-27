@@ -45,6 +45,14 @@ class ProductController extends Controller
         'email' => 'required',
         'password' => 'required|string|confirmed|min:6'
     ]);
+    if($validator->fails()){
+            return response()->json($validator->errors());
+        }
+        $product = Product::create([
+            'name' =>$request->name,
+            'email' => $request->email,
+            'password' =>$request->password
+        ]);
     }
 
     /**
