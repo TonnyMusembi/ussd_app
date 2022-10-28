@@ -3,6 +3,7 @@
 use App\Http\Controllers\Authcontroller;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\EntryController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PhotoController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\ScoreController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UssdController;
 use App\Http\Controllers\VueItemController;
 use GuzzleHttp\Middleware;
@@ -69,3 +71,6 @@ Route::resource('rewards',RewardController::class);
 Route::resource('notifications',NotificationController::class);
 
 Route::resource('populations',PopulationController::class);
+Route::resource('forms',FormController::class);
+
+Route::get('api/uploa',UploadController::class);
