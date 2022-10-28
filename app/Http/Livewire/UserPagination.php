@@ -12,8 +12,6 @@ class UserPagination extends Component {
             'users' => User::latest()->paginate(10),
         ]);
     }
-    public function store(){
-        
-    }
+
 
 }

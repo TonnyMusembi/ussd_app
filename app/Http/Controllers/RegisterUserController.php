@@ -36,8 +36,8 @@ class RegisterUserController extends Controller
 
     }
 
-    public function destroy($id){
-        $id ->delete();
+    public function destroy(User $user){
+        $user ->delete();
         return response()->json([
             'message' => 'deleted successfuly',
             'status' => 'success'
