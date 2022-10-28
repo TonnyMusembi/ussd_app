@@ -26,7 +26,6 @@
         @endforeach
       </tbody>
     </table>
-
     {{ $users->links() }}
 </div>
 <div class="container mt-5" style="max-width: 500px">
