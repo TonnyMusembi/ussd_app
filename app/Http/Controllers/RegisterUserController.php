@@ -10,7 +10,7 @@ class RegisterUserController extends Controller
 {
     //
     public function index(){
-
+        $user = User::latest()->paginate(10);
     }
     public function create(){
         return view('registration.create');
@@ -30,6 +30,7 @@ class RegisterUserController extends Controller
 
     }
     public function show (){
+
         return response()->json([
             'message' => 'successfully shown'
     ]);

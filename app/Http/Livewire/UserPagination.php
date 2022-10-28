@@ -13,5 +13,10 @@ class UserPagination extends Component {
         ]);
     }
 
-
+public function index(){
+    return response()->json([
+       'message' => 'selected successfully',
+       'status' => 200
+    ]);
+}
 }
