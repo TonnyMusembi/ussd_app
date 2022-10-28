@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Auth\Events\Validated;
 
 class RegisterUserController extends Controller
 {
@@ -16,7 +17,7 @@ class RegisterUserController extends Controller
 
     }
     public function store(Request $request){
-        $this->validate(request(), [
+        $validator =Validator::make($request(), [
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required'
