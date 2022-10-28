@@ -55,6 +55,26 @@
                 });
             });
         });
+    
+    // const j = [1,2,3,4,4,5,5,6]
+    for (let j = 1; ; j += 2) {
+  console.log(j);
+  if (j > 10) {
+    break;
+  }
+}
+let hour  = 20; 
+
+if (hour >= 6 && hour <12){
+    console.log('good morning');
+}
+else if (hour >= 12 && hour <18 ){
+    console.log('afternoon');
+
+}
+else
+console.log('good evening');
+
     </script>
 </body>
 </html
