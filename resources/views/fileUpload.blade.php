@@ -73,6 +73,14 @@ else if (hour >= 12 && hour <18 ){
 }
 else
 console.log('good evening');
+
+
+var array = [0];
+for (i =0 ; i<5 ; i++){
+    console.log(i);
+    array.push(i);
+}
+
     </script>
 </body>
 </html
