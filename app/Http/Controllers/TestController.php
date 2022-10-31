@@ -6,6 +6,8 @@ use App\Models\Test;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+
 
 class TestController extends Controller
 {
@@ -40,19 +42,27 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        $request -> validate([
+        // $request -> validate([
+        //     'test_id' => 'required',
+        //     'status' =>  'required',
+        //     'name'   => 'required'
+        // ]);
+
+        $validator = Validator::make($request->all(),[
             'test_id' => 'required',
-            'status' =>  'required',
-            'name'   => 'required'
+            'status'  => 'required',
+            'name'  => 'required'
         ]);
-        $tests = Test::create($request->all());
+        $tests = Test::create([
+            'test_id' =>$request->test_id,
+            'status' => $request->status,
+            'name' => $request->name,
+        ]);
         return response()->json([
             'message' => 'created successfully',
             'status' => 200
         ]);
-        Transaction::create([
 
-        ]);
     }
 
     /**
@@ -87,7 +97,9 @@ class TestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
-        //
+      $validator = Validator::make($request,[
+
+      ]);
     }
 
     /**
