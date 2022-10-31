@@ -73,4 +73,4 @@ Route::resource('notifications',NotificationController::class);
 Route::resource('populations',PopulationController::class);
 Route::resource('forms',FormController::class);
 
-Route::get('api/uploa',UploadController::class);
+Route::resource('uploads',UploadController::class);

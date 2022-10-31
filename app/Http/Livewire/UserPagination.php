@@ -14,9 +14,10 @@ class UserPagination extends Component {
     }
 
 public function index(){
+    $users = User::latest()->paginate(10);
     return response()->json([
        'message' => 'selected successfully',
-       'status' => 200
+       'data'=> $users
     ]);
 }
 }
