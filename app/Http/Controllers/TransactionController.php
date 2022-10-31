@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TransactionController extends Controller
 {
@@ -16,6 +17,10 @@ class TransactionController extends Controller
     {
 
         $transaction = Transaction::latest()->paginate(10);
+        return response()->json([
+            'message' => 'successfully selected',
+            'data' => $transaction
+        ]);
 
     }
 
@@ -37,7 +42,21 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all,[
+            'transaction_id'=> 'required',
+            'msisdn' =>'required',
+            'amount' => 'amount'
+        ]);
+         if($validator->fails()){
+            return response()->json($validator->errors());
+        }
+        $transaction = Transaction::create($request,[
+            'transaction_id'=>$request->id,
+            'msisdn' =>$request->msidn,
+            'amount' => $request->amount
+
+        ]);
+
     }
 
     /**

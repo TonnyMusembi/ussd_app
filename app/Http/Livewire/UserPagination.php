@@ -22,6 +22,14 @@ public function index(){
     ]);
 }
 public function store(Request $request){
+    $validate = $request([
+
+    ]);
 
 }
+public function delete(User $user){
+    $user->delete();
+}
+
+
 }
