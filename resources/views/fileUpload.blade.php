@@ -73,8 +73,6 @@ else if (hour >= 12 && hour <18 ){
 }
 else
 console.log('good evening');
-
-
     </script>
 </body>
 </html

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Http\Request;
 use App\Models\User;
 
 class UserPagination extends Component {
@@ -20,4 +21,15 @@ public function index(){
        'data'=> $users
     ]);
 }
+public function store(Request $request){
+    $validate = $request([
+
+    ]);
+
+}
+public function delete(User $user){
+    $user->delete();
+}
+
+
 }
