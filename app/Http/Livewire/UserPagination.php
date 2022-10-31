@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Http\Request;
 use App\Models\User;
 
 class UserPagination extends Component {
@@ -19,5 +20,8 @@ public function index(){
        'message' => 'selected successfully',
        'data'=> $users
     ]);
+}
+public function store(Request $request){
+
 }
 }
