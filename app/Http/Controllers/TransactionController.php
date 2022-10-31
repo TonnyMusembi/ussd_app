@@ -45,7 +45,8 @@ class TransactionController extends Controller
         $validator = Validator::make($request->all,[
             'transaction_id'=> 'required',
             'msisdn' =>'required',
-            'amount' => 'amount'
+            'amount' => 'amount',
+            'name' =>  'name'
         ]);
          if($validator->fails()){
             return response()->json($validator->errors());
@@ -53,7 +54,8 @@ class TransactionController extends Controller
         $transaction = Transaction::create($request,[
             'transaction_id'=>$request->id,
             'msisdn' =>$request->msidn,
-            'amount' => $request->amount
+            'amount' => $request->amount,
+            'name'=>$request->name
 
         ]);
 
