@@ -18,7 +18,6 @@ class ProductController extends Controller
           return response()->json([
             "status" => 200,
             "data" => $proucts ]);
-
     }
 
     /**
@@ -29,7 +28,8 @@ class ProductController extends Controller
     public function create(){
         return response()->json([
             "message" => "created successfully",
-            "status"  =>  "success"]);
+            "status"  =>  "success"
+        ]);
     }
 
     /**
@@ -41,18 +41,21 @@ class ProductController extends Controller
     public function store(Request $request)
     {
          $validator = Validator::make($request->all,[
-        'mame' =>'required',
-        'email' => 'required',
-        'password' => 'required|string|confirmed|min:6'
+        'product_id' =>'required',
+        'name' => 'required',
+        'price' => 'required'
     ]);
     if($validator->fails()){
             return response()->json($validator->errors());
         }
         $product = Product::create([
-            'name' =>$request->name,
-            'email' => $request->email,
-            'password' =>$request->password
+            'product_id' =>$request->product_id,
+            'name' => $request->name,
+            'price' =>$request->price
         ]);
+        return response()->json([
+            'message'=> 'created successfuly',
+            'status' =>  200 ]);
     }
 
     /**

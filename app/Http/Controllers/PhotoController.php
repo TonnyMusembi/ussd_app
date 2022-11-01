@@ -14,7 +14,6 @@ class PhotoController extends Controller
      */
     public function index()
     {
-
     $photos = Photo::latest()->paginate(10);
     return response()->json([
         "message" => 'successfuly',
@@ -102,6 +101,8 @@ class PhotoController extends Controller
         ]);
 
      return response()->json([
+        'message' => 'updated successfullfy',
+        'satus' => 200
 
      ]);
     }
@@ -114,7 +115,6 @@ class PhotoController extends Controller
      */
     public function destroy($id)
     {
-
     $photo = Photo::find($id);
     $photo->delete();
     }
