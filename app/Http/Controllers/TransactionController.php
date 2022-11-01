@@ -53,10 +53,14 @@ class TransactionController extends Controller
         }
         $transaction = Transaction::create($request,[
             'transaction_id'=>$request->id,
-            'msisdn' =>$request->msidn,
+            'msisdn' =>$request->msisdn,
             'amount' => $request->amount,
             'name'=>$request->name
 
+        ]);
+        return response()->json([
+            'message' => 'created successfully',
+            'status' => 200
         ]);
 
     }
@@ -67,9 +71,14 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function show(Transaction $transaction)
+    public function show(Transaction $transaction , $id)
     {
-        //
+        $transaction = Transaction::find($id);
+        if(is_null($transaction)){
+            return response()->json([
+                'message' => 'no data found'
+            ]);
+        }
     }
 
     /**
@@ -80,7 +89,7 @@ class TransactionController extends Controller
      */
     public function edit(Transaction $transaction)
     {
-        //
+        return view('edit.transaction');
     }
 
     /**
