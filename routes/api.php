@@ -3,6 +3,7 @@
 use App\Http\Controllers\Authcontroller;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\EntryController;
+// use App\Http\Controllers\FlightController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\NotificationController;
@@ -74,3 +75,5 @@ Route::resource('populations',PopulationController::class);
 Route::resource('forms',FormController::class);
 
 Route::resource('uploads',UploadController::class);
+
+//Route::resource('flights',FlightController::class);
