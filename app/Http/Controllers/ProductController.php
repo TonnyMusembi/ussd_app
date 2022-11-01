@@ -38,6 +38,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function innerinjection(){
+        
+    }
     public function store(Request $request)
     {
          $validator = Validator::make($request->all,[
