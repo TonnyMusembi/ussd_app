@@ -94,10 +94,10 @@ class LeagueController extends Controller
      */
     public function update(Request $request, League $league)
     {
-        //
         $validator = Validator::make($request->all(),[
-
-
+            'league_id' => 'required',
+            'name' => 'required',
+            'country' => 'required'
     ]);
     }
 

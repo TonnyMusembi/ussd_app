@@ -14,7 +14,11 @@ class SaleController extends Controller
      */
     public function index()
     {
-        //
+     $sale = Sale::latest()->paginate(10);
+     return response()->json([
+        'message' => 'selected successfully',
+        'status' => 200
+     ]);
     }
 
     /**
@@ -35,7 +39,7 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -44,9 +48,12 @@ class SaleController extends Controller
      * @param  \App\Models\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function show(Sale $sale)
+    public function show(Sale $sale,$id)
     {
-        //
+        $sale = Sale::find($id);
+        if (is_null($sale)){
+            return $this->sendError('Product  not found');
+        }
     }
 
     /**
@@ -57,7 +64,7 @@ class SaleController extends Controller
      */
     public function edit(Sale $sale)
     {
-        //
+
     }
 
     /**
@@ -80,6 +87,10 @@ class SaleController extends Controller
      */
     public function destroy(Sale $sale)
     {
-        //
+        $sale->delete();
+        return response()->json([
+            'message' => 'deleted successfully',
+            'status' => 200
+        ]);
     }
 }
