@@ -20,7 +20,6 @@ class BookController extends Controller
             "status" => 200,
             "data" => $books
       ]);
-
     }
 
     /**
@@ -30,7 +29,7 @@ class BookController extends Controller
      */
     public function create()
     {
-      return view('');
+      return view('books.create');
     }
 
     /**
