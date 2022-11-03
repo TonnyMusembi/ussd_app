@@ -120,8 +120,6 @@ class LeagueController extends Controller
     else{
         return response()->json(['message'=>'Delete Failed']);
     }
-        // $league->delete();
-        // return response()->json('deleted successfully');
 
     }
 }
