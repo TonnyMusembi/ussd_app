@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Sale;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class SaleController extends Controller
 {
@@ -14,11 +16,7 @@ class SaleController extends Controller
      */
     public function index()
     {
-     $sale = Sale::latest()->paginate(10);
-     return response()->json([
-        'message' => 'selected successfully',
-        'status' => 200
-     ]);
+
     }
 
     /**
@@ -28,8 +26,7 @@ class SaleController extends Controller
      */
     public function create()
     {
-        return view('sales.create');
-    }
+
 
     /**
      * Store a newly created resource in storage.
