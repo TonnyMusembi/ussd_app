@@ -1,7 +1,7 @@
 
 <<<<<<< HEAD
 
-## About Laravel
+
 Laravel API's
 
 ##
@@ -11,7 +11,7 @@ Laravel API's
 
 
 
-### Premium Partners
+
 
 
 
@@ -20,7 +20,7 @@ Laravel API's
 ## Code of Conduct
 
 
-## Security Vulnerabilities
+
 
 
 
