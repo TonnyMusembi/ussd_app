@@ -20,7 +20,6 @@ class BookController extends Controller
             "status" => 200,
             "data" => $books
       ]);
-
     }
 
     /**
@@ -30,7 +29,7 @@ class BookController extends Controller
      */
     public function create()
     {
-      return view('');
+        return view('bol.create');
     }
 
     /**
@@ -77,10 +76,13 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book){
-        return response()->json(
+    public function edit(Book $book, $id){
 
-        );
+        $book = Book::Find($id);
+        return response()->json([
+            'message' => 'edited successfully '
+
+        ]);
         //
     }
 

@@ -94,10 +94,10 @@ class LeagueController extends Controller
      */
     public function update(Request $request, League $league)
     {
-        //
         $validator = Validator::make($request->all(),[
-
-
+            'league_id' => 'required',
+            'name' => 'required',
+            'country' => 'required'
     ]);
     }
 
@@ -120,8 +120,6 @@ class LeagueController extends Controller
     else{
         return response()->json(['message'=>'Delete Failed']);
     }
-        // $league->delete();
-        // return response()->json('deleted successfully');
 
     }
 }
