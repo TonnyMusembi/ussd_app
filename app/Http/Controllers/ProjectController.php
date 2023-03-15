@@ -59,8 +59,9 @@ class ProjectController extends Controller
         'name' => $request->name
 
        ]);
-     return response()->json(['Program created successfully.']);
-
+     return response()->json([
+        'data'=>$project,
+       'message'=> 'Program created successfully.']);
 
     }
 
