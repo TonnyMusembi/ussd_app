@@ -62,7 +62,8 @@ class TestController extends Controller
         ]);
         return response()->json([
             'message' => 'created successfully',
-            'status' => 200
+            'status' => 200,
+            '$tests' =>'data'
         ]);
 
     }

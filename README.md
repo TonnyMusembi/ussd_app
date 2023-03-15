@@ -1,7 +1,7 @@
 
 <<<<<<< HEAD
 
-## About Laravel
+
 Laravel API's
 
 ##
@@ -9,22 +9,6 @@ Laravel API's
 
 ## 
 
-
-
-### Premium Partners
-
-
-
-
-
-## Code of Conduct
-
-
-## Security Vulnerabilities
-
-
-
-## License
 
 # ussd_app
 =======
