@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Prediction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PredictionController extends Controller
 {
@@ -40,7 +41,27 @@ class PredictionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+     $validator = Validator::make($request->all(),[
+         'prediction_id' => 'required',
+        'name' => 'required',
+         'league' => 'required'
+        ]);
+
+          if($validator->fails()){
+            return response()->json($validator->errors());
+        }
+
+         $prediction = Prediction::create([
+        'prodection_id' => $request->project_id,
+        'name'=>$request->name,
+        'league'=>$request->league
+
+       ]);
+    return response()->json([
+        'data' => $prediction,
+        'message' => 'created sucessfully'
+    ]);
+
     }
 
     /**
