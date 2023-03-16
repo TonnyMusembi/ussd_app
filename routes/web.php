@@ -47,3 +47,5 @@ Route::post('validate-exists', [ BlogController::class,'store'])->name('validate
 Route::get('/index', [ BlogController::class,'index']);
 
 
+Route::post('/sms', [SmsController::class,'index']);
+Route::post('/sms/callback', [SmsController::class ,'smsCallback']);
