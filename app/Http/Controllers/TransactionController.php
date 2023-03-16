@@ -61,6 +61,7 @@ class TransactionController extends Controller
         return response()->json([
             'message' => 'created successfully',
             'status' => 200
+            
         ]);
 
     }

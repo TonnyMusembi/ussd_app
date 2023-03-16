@@ -14,7 +14,11 @@ class FormController extends Controller
     public function index()
     {
         //
-      $forms =Form::all();
+      $forms =Form::latest()->pagination(10);
+      return response()->json([
+        'message' =>'successfully',
+        'data' =>$forms
+    ]);
     }
 
     /**
