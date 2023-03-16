@@ -42,11 +42,6 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        // $request -> validate([
-        //     'test_id' => 'required',
-        //     'status' =>  'required',
-        //     'name'   => 'required'
-        // ]);
         $validator = Validator::make($request->all(),[
             'test_id' => 'required',
             'status'  => 'required',

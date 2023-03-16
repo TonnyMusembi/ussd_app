@@ -11,4 +11,7 @@ class TextSearchController extends Controller
         return response()->json();
 
     }
+    public function store( Request $requst ){
+
+    }
 }

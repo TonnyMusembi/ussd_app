@@ -14,8 +14,15 @@ class PopulationController extends Controller
      */
     public function index()
     {
-        //
-        
+        $population =Population::latest()->paginate(10);
+
+        return response()->json([
+
+
+            'data'=>$population,
+            'status'=>200
+        ]);
+
     }
 
     /**

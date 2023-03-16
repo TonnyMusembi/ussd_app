@@ -17,8 +17,8 @@ class ScoreController extends Controller
         $scores = Score::latest()->paginate(10);
 
         return response()->json([
-            'message' => 'successfully',
-            'data' => $scores
+            'data' => $scores,
+             'message' => 'successfully'
         ]);
     }
 

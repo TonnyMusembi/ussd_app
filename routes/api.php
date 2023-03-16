@@ -76,4 +76,3 @@ Route::resource('forms',FormController::class);
 
 Route::resource('uploads',UploadController::class);
 
-//Route::resource('flights',FlightController::class);
