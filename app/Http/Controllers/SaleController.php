@@ -14,9 +14,12 @@ class SaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-
+    public function index(){
+        $sale= Sale::latest()->paginate(10);
+        return response()->json([
+            'message' => 'selected successfully',
+            'data' => $sale
+        ]);
     }
 
     /**
@@ -26,17 +29,20 @@ class SaleController extends Controller
      */
     public function create()
     {
-
+        return view('sales');
+    }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Responsep
      */
     public function store(Request $request)
     {
+    $validator =Validator::make($request,[
 
+      ]);
     }
 
     /**
