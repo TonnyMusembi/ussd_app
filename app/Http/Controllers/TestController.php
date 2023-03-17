@@ -20,7 +20,7 @@ class TestController extends Controller
     {
      $tests =Test::latest()->paginate(10);
      return response()->json([
-        'statusCode'=> 200,
+        'message'=> 'Retrieved Successfuly',
         'data' => $tests
      ],200);
     }

@@ -18,7 +18,7 @@ class TransactionController extends Controller
 
         $transaction = Transaction::latest()->paginate(10);
         return response()->json([
-            'message' => 'successfully selected',
+            'satusCode' => 200,
             'data' => $transaction
         ]);
 
@@ -32,6 +32,7 @@ class TransactionController extends Controller
     public function create()
     {
         //
+        return view('/create');
     }
 
     /**
@@ -42,7 +43,7 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all,[
+        $validator = Validator::make($request->all(),[
             'transaction_id'=> 'required',
             'msisdn' =>'required',
             'amount' => 'amount',
@@ -61,7 +62,7 @@ class TransactionController extends Controller
         return response()->json([
             'message' => 'created successfully',
             'status' => 200
-            
+
         ]);
 
     }
