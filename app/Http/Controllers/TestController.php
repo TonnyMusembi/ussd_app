@@ -20,12 +20,12 @@ class TestController extends Controller
     {
      $tests =Test::latest()->paginate(10);
      return response()->json([
-        'message'=> 'selected successful',
+        'statusCode'=> 200,
         'data' => $tests
      ],200);
     }
 
-    /**
+    /**xs
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -57,8 +57,8 @@ class TestController extends Controller
         ]);
         return response()->json([
             'message' => 'created successfully',
-            'status' => 200,
-            '$tests' =>'data'
+            'statusCode' => 200,
+            'data' =>$tests
         ]);
 
     }
