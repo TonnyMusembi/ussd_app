@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Form;
 use Illuminate\Http\Request;
+
 class FormController extends Controller
 {
     /**
@@ -13,11 +14,7 @@ class FormController extends Controller
     public function index()
     {
         //
-      $forms =Form::latest()->pagination(10);
-      return response()->json([
-        'message' =>'successfully',
-        'data' =>$forms
-    ]);
+      $forms =Form::all();
     }
 
     /**

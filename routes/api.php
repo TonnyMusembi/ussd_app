@@ -19,7 +19,6 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UssdController;
-use App\Http\Controllers\SaleController;
 use App\Http\Controllers\VueItemController;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
@@ -76,6 +75,4 @@ Route::resource('populations',PopulationController::class);
 Route::resource('forms',FormController::class);
 
 Route::resource('uploads',UploadController::class);
-
-Route::resource('sales',SaleController::class);
 

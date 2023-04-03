@@ -18,7 +18,7 @@ class RewardController extends Controller
         $reward = Reward::latest()->paginate(10);
         return response()->json([
             'message' => 'selected successfully',
-            'data'=>$reward
+
         ],200);
     }
 
