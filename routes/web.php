@@ -1,15 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FileController;
-// use App\Http\Controllers\HomeController;
-use App\Http\Controllers\VueItemController;
-use App\Http\Controllers\GoogleChartController;
-
-use App\Http\Controllers\BlogController;
-
-use App\Http\Livewire\Posts;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -23,29 +14,7 @@ use App\Http\Livewire\Posts;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('user-pagination', function () {
-    return view('default');
+    return ['Laravel' => app()->version()];
 });
 
-Route::controller(FileController::class)->group(function(){
-    Route::get('file-upload', 'index');
-    Route::post('file-upload', 'store')->name('file.upload');
-});
-
-Route::get('posts', Posts::class);
-
-
-Route::get('manage-vue', [VueItemController::class]);
-// Route::resource('vueitems',[VueItemController::class]);
-
-// Route::get('notification', [HomeController::class,'notification']);
-
-Route::get('chart', [GoogleChartController::class, 'index']);
-Route::post('validate-exists', [ BlogController::class,'store'])->name('validate.exists');
-Route::get('/index', [ BlogController::class,'index']);
-
-
-Route::post('/sms', [SmsController::class,'index']);
-Route::post('/sms/callback', [SmsController::class ,'smsCallback']);
+require __DIR__.'/auth.php';
